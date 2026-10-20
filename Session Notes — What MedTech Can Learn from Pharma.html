@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Key Takeaways — What MedTech Can Learn from Pharma</title>
+<style>
+  :root {
+    --green: #0D8390;
+    --dark: #1a1a2e;
+    --mid: #2d2d4e;
+    --text: #1a1a2e;
+    --subtle: #555;
+    --border: #e0e0e0;
+    --bg: #f8f9fa;
+    --white: #ffffff;
+    --accent: #86BC25;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #e8e8f0;
+      --subtle: #aaa;
+      --border: #333;
+      --bg: #12121f;
+      --white: #1e1e30;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  header {
+    background: var(--dark);
+    color: white;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+  header .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  header .meta {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: 0.5rem;
+  }
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+  .thesis {
+    background: var(--white);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .thesis p + p { margin-top: 0.75rem; }
+  section { margin-bottom: 2.5rem; }
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+  p { margin-bottom: 0.9rem; color: var(--text); }
+  strong { color: var(--text); }
+  .callout {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+  }
+  .callout .callout-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .stat-row {
+    display: flex;
+    gap: 1rem;
+    margin: 1.25rem 0;
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    flex: 1;
+    min-width: 130px;
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat-box .stat-num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--green);
+    display: block;
+  }
+  .stat-box .stat-label {
+    font-size: 0.78rem;
+    color: var(--subtle);
+    line-height: 1.35;
+    margin-top: 0.25rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  th {
+    background: var(--dark);
+    color: white;
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--bg); }
+  .action-cards { display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0; }
+  .action-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .action-num {
+    background: var(--green);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .action-content h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .action-content p { font-size: 0.88rem; color: var(--subtle); margin: 0; }
+  .takeaway-cards { display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0; }
+  .takeaway-card {
+    background: var(--mid);
+    color: white;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+  .takeaway-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: white; }
+  .takeaway-card p { font-size: 0.85rem; color: #ccc; margin: 0; line-height: 1.5; }
+  .sources {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--subtle);
+    line-height: 1.6;
+  }
+  .sources li { margin-bottom: 0.35rem; padding-left: 0.25rem; }
+  .sources ul { padding-left: 1.25rem; }
+  footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--subtle);
+    padding: 1.5rem 1.25rem;
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .doom-loop {
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  .loop-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    gap: 0.75rem;
+  }
+  .loop-item:last-child { border-bottom: none; }
+  .loop-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .loop-num.gray { background: #777; }
+  .loop-num.amber { background: #c87800; }
+  .loop-num.red { background: #c0261a; }
+  .loop-item h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .loop-item p { font-size: 0.82rem; color: var(--subtle); margin: 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="label">Session Companion Notes</div>
+  <h1>What MedTech Can Learn from Pharma</h1>
+  <div class="meta">
+    Brad Maruca, Managing Director, Deloitte<br>
+    Annual Advances &amp; Innovations in Endoscopic Oncology · October 2026
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- EDUCATIONAL OBJECTIVES -->
+  <section style="margin-bottom:2.5rem;">
+    <div class="section-label">Educational Objectives</div>
+    <h2>After this session, attendees will be able to:</h2>
+    <div class="doom-loop">
+      <div class="loop-item">
+        <div class="loop-num" style="background:var(--green);">1</div>
+        <div>
+          <h4>Compare</h4>
+          <p>The FDA 510(k) device clearance pathway to the pharmaceutical NDA process and describe the implications for the clinical evidence base underlying endoscopic technologies</p>
+        </div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num" style="background:var(--green);">2</div>
+        <div>
+          <h4>Explain</h4>
+          <p>How the absence of pre-launch health economics and reimbursement infrastructure creates downstream barriers to procedure adoption, training, and patient access</p>
+        </div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num" style="background:var(--green);">3</div>
+        <div>
+          <h4>Identify</h4>
+          <p>The structural factors — reimbursement, volume, and training pipeline — that contribute to the ESD adoption gap between the United States and Asia-Pacific</p>
+        </div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num" style="background:var(--green);">4</div>
+        <div>
+          <h4>Describe</h4>
+          <p>How real-world evidence generated through GI registries can be used to support payer coverage arguments and CPT/APC policy engagement</p>
+        </div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num" style="background:var(--green);">5</div>
+        <div>
+          <h4>Apply</h4>
+          <p>A framework for evaluating new endoscopic technologies that accounts for the evidence standard, reimbursement pathway, and post-market data commitment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="thesis">
+    <p>Pharma and MedTech are both trying to put better tools in clinicians' hands. They operate with fundamentally different systems for evidence, access, and adoption — and that gap has real consequences.</p>
+    <p>In endoscopic oncology, where the choice is between organ-sparing resection and surgery, this is not a systems inefficiency. It is a cancer care access problem.</p>
+    <p>The question is not whether endoscopy should become pharma. It is what pharma learned that endoscopy still needs to build — and what endoscopic oncology must build its own way.</p>
+  </div>
+
+  <!-- SECTION 1 -->
+  <section>
+    <div class="section-label">Section 1</div>
+    <h2>The Evidence Gap</h2>
+
+    <p>A drug reaching your formulary required Phase I–III randomized controlled trials, head-to-head against standard of care. An endoscopic device can reach your unit through the FDA 510(k) pathway — which requires only <strong>substantial equivalence to a predicate device</strong>, with no head-to-head clinical trial required.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-num">~85%</span>
+        <div class="stat-label">of high-risk devices cleared via 510(k) without RCT data</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">31%</span>
+        <div class="stat-label">of endoscopic device categories have any post-market registry</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">2×</span>
+        <div class="stat-label">faster evidence generation in pharma vs. device sector</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The question to ask</div>
+      When a new endoscopic device arrives in your unit, ask: <em>what is the post-market evidence, and how does this compare to the current standard of care?</em> The 510(k) clearance letter does not answer that question.
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The nuance</div>
+      The 510(k) pathway's speed has real value — device innovation that required Phase III trials before clearance would have delayed tools that genuinely work. The goal is not to make medtech become pharma. It is to apply the same <em>rigor</em> through evidence pathways designed for devices.
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section>
+    <div class="section-label">Section 2</div>
+    <h2>The Reimbursement Maze</h2>
+
+    <p>Pharma builds its payer case <strong>before launch</strong> — health economics models, cost-effectiveness data, J-codes and NDCs that enable billing from day one. Most MedTech companies build the clinical story first and figure out reimbursement years later.</p>
+
+    <div class="callout">
+      <div class="callout-label">The POEM example</div>
+      POEM was introduced in the U.S. around 2010–2012. A standalone CPT code (43497) was not established until January 2022 — nearly a decade of billing uncertainty. During that time, patient access depended entirely on whether the institution was willing to absorb that uncertainty.
+    </div>
+
+    <p><strong>The doom loop:</strong> Weak clinical data at launch sets off a chain reaction that locks in every downstream problem.</p>
+
+    <div class="doom-loop">
+      <div class="loop-item">
+        <div class="loop-num gray">1</div>
+        <div><h4>No ironclad clinical data</h4><p>510(k) cleared without head-to-head RCT vs. standard of care</p></div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num gray">2</div>
+        <div><h4>Weak payer case</h4><p>No HEOR pre-launch; payers default to bundling or denial</p></div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num amber">3</div>
+        <div><h4>Inadequate reimbursement</h4><p>No physician CPT for ESD; unlisted codes; 8.3% denial rate</p></div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num amber">4</div>
+        <div><h4>Volume drought</h4><p>U.S.: fewer than 200 trained ESD physicians; fewer than 50 active centers</p></div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num red">5</div>
+        <div><h4>Never reach skills plateau</h4><p>250–350 cases to competency untutored in U.S. vs. 30–40 supervised in Japan</p></div>
+      </div>
+      <div class="loop-item">
+        <div class="loop-num red">6</div>
+        <div><h4>Poor outcomes &amp; long procedure times</h4><p>Early-career complications confirm payer skepticism — loop repeats</p></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The ESD economics</div>
+      An endoscopist choosing between a 2-hour ESD and four colonoscopies faces a rational economic choice — four colonoscopies generate more RVU income in the same time, with reliable billing. There is no dedicated physician CPT code for ESD. The payment system has encoded a preference for the simpler procedure. Japan and Korea avoid this because their salaried hospital model removes the personal financial penalty for spending two hours on a complex resection.
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section>
+    <div class="section-label">Section 3</div>
+    <h2>Adoption &amp; Diffusion</h2>
+
+    <p>Japan reached over 85% ESD penetration. The U.S. remains in single digits. The evidence is the same. The infrastructure is not.</p>
+
+    <table>
+      <thead>
+        <tr><th>Capability</th><th>Pharma</th><th>Endoscopy Today</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Medical education</strong></td>
+          <td>Structured MSL networks, CME at scale</td>
+          <td>Proctoring labs — academic-center focused</td>
+          <td>Emerging</td>
+        </tr>
+        <tr>
+          <td><strong>KOL strategy</strong></td>
+          <td>Integrated at launch</td>
+          <td>Conference-driven, community reach limited</td>
+          <td>Early</td>
+        </tr>
+        <tr>
+          <td><strong>Outcomes tracking</strong></td>
+          <td>Post-market registries standard</td>
+          <td>GIQuIC building — not yet systematic</td>
+          <td>Building</td>
+        </tr>
+        <tr>
+          <td><strong>Payer engagement</strong></td>
+          <td>Pre-launch advisory boards</td>
+          <td>Reactive; coding typically delayed</td>
+          <td>Lagging</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">The learning curve gap</div>
+      In the U.S., an untutored endoscopist requires approximately <strong>250–350 ESD procedures</strong> to reach competency benchmarks. In Japan and Korea, with structured mentorship, trainees achieve competency in <strong>30–40 supervised cases</strong>. Same procedure. The difference is volume infrastructure and expert mentorship — itself a downstream consequence of the reimbursement environment.
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section>
+    <div class="section-label">Section 4</div>
+    <h2>The Path Forward</h2>
+
+    <p>GI endoscopy generates approximately <strong>100 million colonoscopies per year</strong> in the United States. AI-assisted endoscopy (CADe/CADx) is creating procedure-level structured data at scale — every AI-assisted scope becomes a data point. This is the evidence infrastructure pharma took 30 years to build. Endoscopy can build it faster because the volume already exists.</p>
+
+    <div class="action-cards">
+      <div class="action-card">
+        <div class="action-num">1</div>
+        <div class="action-content">
+          <h3>Participate in registries</h3>
+          <p>GIQuIC and GQUIC enrollment gives your outcomes institutional and national weight. The data you generate today becomes the payer argument in 2027. This is the highest-leverage action available to the clinicians in this room.</p>
+        </div>
+      </div>
+      <div class="action-card">
+        <div class="action-num">2</div>
+        <div class="action-content">
+          <h3>Engage policy and coverage</h3>
+          <p>ASGE committee participation shapes CPT/APC arguments. This is how codes get written. When ASGE asks for committee volunteers, say yes.</p>
+        </div>
+      </div>
+      <div class="action-card">
+        <div class="action-num">3</div>
+        <div class="action-content">
+          <h3>Collaborate with industry early</h3>
+          <p>Manufacturers who engage GI societies, registries, and academic endoscopists at study design — not after clearance — build better studies and better products. Ask for the post-market evidence commitment, not just the 510(k) summary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAKEAWAYS -->
+  <section>
+    <div class="section-label">Key Takeaways</div>
+    <h2>What Closing the Gap Requires</h2>
+
+    <div class="takeaway-cards">
+      <div class="takeaway-card">
+        <h3>1 · The evidence bar is not equal</h3>
+        <p>Most endoscopic devices cleared via 510(k) have no head-to-head trial data. Scrutinize the evidence behind new tools — not just their FDA status. Push for rigorous evidence in the right form for the technology, not a weaker version of the pharma standard.</p>
+      </div>
+      <div class="takeaway-card">
+        <h3>2 · Reimbursement is a clinical strategy issue</h3>
+        <p>Coverage gaps determine which patients get access. The doom loop starts with weak evidence and ends with poor outcomes. Understanding the payer pathway — CPT codes, APC assignments, coverage with evidence development — is a clinical advocacy tool, not a billing department concern.</p>
+      </div>
+      <div class="takeaway-card">
+        <h3>3 · The skills gap is structural, not individual</h3>
+        <p>250 cases to competency without mentorship versus 30 with it. The difference is not physician talent — it is volume infrastructure. That infrastructure is built through registries, payment reform, and training investment.</p>
+      </div>
+      <div class="takeaway-card">
+        <h3>4 · Your data is the lever</h3>
+        <p>At ~100M colonoscopies per year, GI generates enough real-world volume to rival clinical trials. Registry participation is the highest-leverage action available. The question is not whether medtech should become pharma — it is what pharma learned that we still need to build, and what endoscopic oncology must build differently.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section>
+    <div class="section-label">Sources</div>
+    <h2>Key References</h2>
+    <div class="sources">
+      <ul>
+        <li>Zuckerman DM et al. <em>JAMA Internal Medicine</em> 2014 — FDA 510(k) evidence analysis</li>
+        <li>FDA 510(k) Premarket Notification Program overview — fda.gov</li>
+        <li>Khalaf MN et al. <em>Clinical Gastroenterology and Hepatology</em> 2024 — ESD learning curves in the United States</li>
+        <li>Draganov PV et al. <em>Clinical Gastroenterology and Hepatology</em> 2019 — AGA ESD practice update</li>
+        <li>Tero A et al. <em>Science</em> 327(5964), 2010 — Biologically inspired adaptive network design</li>
+        <li>ASGE GIQuIC registry — giquic.org</li>
+        <li>GlobalData MedTech Outlook 2024</li>
+        <li>Wang et al. <em>Gastroenterology</em> 2020 — CADe ADR improvement data</li>
+        <li>CMS MPFS 2026 — ESD APC C9779 hospital outpatient rate</li>
+        <li>Deloitte Health strategy analysis</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Prepared by Brad Maruca, Managing Director, Deloitte, for attendees of the 2026 Annual Advances and Innovations in Endoscopic Oncology and Multidisciplinary GI Cancer Care conference. These notes reflect the views of the presenter and do not constitute medical or legal advice. This is a non-CME session.
+</footer>
+
+</body>
+</html>
